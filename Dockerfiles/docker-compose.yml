@@ -1,0 +1,41 @@
+version: '3.7'
+
+services:
+  db:
+    image: mongo:latest
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
+    volumes:
+      - ./db/data:/var/lib/mongodb/data
+    ports:
+      - ${MONGO_LOCAL_PORT}:27017
+    networks:
+      - ms-network
+
+  ms-login:
+    build:
+      context: ../login
+      dockerfile: ../Dockerfiles/nodejs-typescript/Dockerfile
+    restart: always
+    env_file:
+      - ../login/.env
+    ports:
+      - ${LOGIN_APP_PORT}:3000
+    networks:
+      - ms-network
+
+  ms-business:
+    build:
+      context: ../business
+      dockerfile: ../Dockerfiles/nodejs-typescript/Dockerfile
+    restart: always
+    env_file:
+      - ../business/.env
+    networks:
+      - ms-network
+
+networks:
+  ms-network:
+    name: ms-network
