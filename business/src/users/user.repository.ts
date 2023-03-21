@@ -7,10 +7,10 @@ import { UserModel, UserDocument, IUser } from './user.model';
 // Interfaces
 import { UserCreateData } from './interfaces/user-create';
 import { UserFilters } from './interfaces/user-filters';
-import { MongoPaginationFilters } from '../../../login/src/shared/interfaces/pagination.interface';
+import { MongoPaginationFilters } from '../shared/interfaces/pagination.interface';
 
 // Errors
-import { MongoDuplicateKeyError } from '../../../login/src/shared/errors/mongo.error';
+import { MongoDuplicateKeyError } from '../shared/errors/mongo.error';
 
 export class UserRepository {
     private readonly model: typeof UserModel;

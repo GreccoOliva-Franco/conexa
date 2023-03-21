@@ -2,7 +2,7 @@
 import { Router } from "express";
 
 // Middlewares
-import { authenticateWithBearerToken } from "../../../login/src/shared/middlewares/bearer.middleware";
+import { authenticateWithBearerToken } from "../shared/middlewares/bearer.middleware";
 
 // Controllers
 import { UserController } from "./user.controller";
