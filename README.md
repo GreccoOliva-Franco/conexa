@@ -72,7 +72,7 @@ Asegurarse de cumplir los requisitos listados anteriormente.
         2. Body: `{ "email": string, "password": string }`.
         3. Response: `{ "status": boolean, "token": { "value": string, "type": "Bearer" } }`.
     3. GET `http://localhost:3000/api/users`.
-        1. Requiere JWT en la key `Authorization` del header con formato `Bearer + <tokenString>`.
+        1. Requiere JWT en la key `Authorization` del header con formato `Bearer <tokenString>`.
         2. Query params: `{ email?: string, limit?: string, offset: string}`.
         3. Response: `body: { "status": boolean, "users": User[] }`.
 
