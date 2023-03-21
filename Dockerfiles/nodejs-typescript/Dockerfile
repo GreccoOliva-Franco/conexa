@@ -1,4 +1,4 @@
-FROM node:lts-alpine
+FROM node:lts
 # GET ENV VARS FROM environment key of docker-compose.yml
 ARG APP_PORT
 
