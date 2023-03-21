@@ -6,7 +6,7 @@ export class UserController {
     async find(req: Request, res: Response) {
         try {
             const { data: users } = await axios.get(
-                "http://localhost:3001/api/users",
+                "http://ms-business/api/users",
                 { headers: { 'Authorization': req.headers.authorization }, params: { ...req.query } },
             )
                 .then((res) => res.data);
