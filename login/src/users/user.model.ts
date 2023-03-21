@@ -2,7 +2,7 @@
 import mongoose, { Schema, Model } from "mongoose";
 
 // Generics
-import { MongooseDocument as Document } from "../../../login/src/shared/generics/mongoose.generics";
+import { MongooseDocument as Document } from "../shared/generics/mongoose.generics";
 
 export interface IUser {
     email: string;

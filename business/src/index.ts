@@ -1,5 +1,4 @@
 // External modules
-import dotenv from "dotenv";
 import mongoose from 'mongoose';
 import express from 'express';
 import cors from 'cors';
@@ -10,8 +9,6 @@ import { endpointNotFoundHandler } from "./shared/handlers/error.handler";
 
 // Routes
 import apiRoutes from "./api.routes";
-
-dotenv.config({ path: "./.env" });
 
 const app = express();
 
@@ -24,14 +21,14 @@ app.use("/api", apiRoutes);
 
 app.use('*', endpointNotFoundHandler);
 
-const port = parseInt(process.env.APP_PORT) || 3001;
+const port = parseInt(process.env.APP_PORT) || 80;
 
 mongoose.connection
 	.on('connected', () => {
-		console.log('[MS Login]: connected to database');
+		console.log('[MS Business]: connected to database');
 
 		app.listen(port, () => {
-			console.log(`[MS Login]: running on port ${port}`);
+			console.log(`[MS Business]: running on port ${port}`);
 		});
 
 		app.on('error', (err) => console.log(err));
