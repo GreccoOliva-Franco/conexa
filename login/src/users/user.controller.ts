@@ -1,29 +1,15 @@
 // External modules
+import axios from "axios";
 import { Request, Response } from "express";
 
-// Services
-import { UserService } from "./user.service";
-
-// Interfaces
-import { Pagination } from "../shared/interfaces/pagination.interface";
-import { UserFilters } from "./interfaces/user-filters";
-
 export class UserController {
-    private readonly service: UserService;
-
-    constructor() {
-        this.service = new UserService();
-    }
-
     async find(req: Request, res: Response) {
         try {
-            const { email } = req.query as UserFilters;
-            const { offset, limit } = req.query as unknown as Pagination;
-
-            const users = await this.service.find(
-                { email } satisfies UserFilters,
-                { offset, limit } satisfies Pagination
-            );
+            const { data: users } = await axios.get(
+                "http://localhost:3001/api/users",
+                { headers: { 'Authorization': req.headers.authorization }, params: { ...req.query } },
+            )
+                .then((res) => res.data);
 
             return res.status(200).json({ status: true, data: users });
         } catch (error) {
@@ -31,5 +17,3 @@ export class UserController {
         }
     }
 }
-
-export default new UserController();

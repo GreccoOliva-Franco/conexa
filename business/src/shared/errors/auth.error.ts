@@ -8,7 +8,7 @@ export class AuthInvalidCredentialsError extends CustomError {
             message: "Invalid credentials",
             name: "AuthCredentialError",
             internalCode: codePrefix + "001"
-        } satisfies ICustomError;
+        } as ICustomError;
 
         super(errorData);
     }
