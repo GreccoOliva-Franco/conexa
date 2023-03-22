@@ -1,5 +1,5 @@
 // External modules
-import mongoose, { Schema, Model } from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
 // Generics
 import { MongooseDocument as Document } from "../shared/generics/mongoose.generics";

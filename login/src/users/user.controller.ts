@@ -9,11 +9,15 @@ export class UserController {
                 "http://ms-business/api/users",
                 { headers: { 'Authorization': req.headers.authorization }, params: { ...req.query } },
             )
-                .then((res) => res.data);
+                .then((res) => {
+                    if (res.status === 200) return res.data;
+
+                    throw new Error();
+                })
 
             return res.status(200).json({ status: true, data: users });
         } catch (error) {
-            return res.status(500).json(error);
+            return res.status(500);
         }
     }
 }

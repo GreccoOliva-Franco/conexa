@@ -11,7 +11,7 @@ const router = Router();
 
 router.use(authenticateWithBearerToken());
 
-// ! DISCLAIMER: router callbacks instanciate a new controller instance each time because I did not use any dependency injection library
+// router callbacks instanciate a new controller instance each time because I did not use any dependency injection library
 
 router.get("/", async (req, res) => await new UserController().find(req, res));
 

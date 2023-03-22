@@ -23,7 +23,8 @@ export class AuthService {
 
         if (!user) throw new UserNotFoundError();
 
-        const isValidPassword = user.password === password; // TODO: use bcrypt to compare passwords
+        // TODO: use bcrypt to compare passwords
+        const isValidPassword = user.password === password;
 
         if (!isValidPassword) throw new AuthInvalidCredentialsError();
 

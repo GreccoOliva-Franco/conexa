@@ -6,10 +6,6 @@ import { MongoPaginationFilters, Pagination } from '../shared/interfaces/paginat
 import { UserFilters } from './interfaces/user-filters';
 import { UserDocument } from './user.model';
 
-// Errors
-// import { UserAlreadyExistsError } from '../shared/errors/user.error';
-// import { MongoDuplicateKeyError } from '../shared/errors/mongo.error';
-
 export class UserService {
     private readonly userRepository: UserRepository;
 

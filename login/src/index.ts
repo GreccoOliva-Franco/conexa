@@ -1,5 +1,4 @@
 // External modules
-import dotenv from "dotenv";
 import mongoose from 'mongoose';
 import express from 'express';
 import cors from 'cors';
@@ -10,8 +9,6 @@ import { endpointNotFoundHandler } from "./shared/handlers/error.handler";
 
 // Routes
 import apiRoutes from "./api.routes";
-
-dotenv.config({ path: "./.env" });
 
 const app = express();
 

@@ -22,7 +22,7 @@ export class AuthController {
 
     async signUp(req: Request, res: Response): Promise<Response> {
         try {
-            const userData = req.body satisfies UserCreateData;
+            const userData = req.body as UserCreateData;
 
             const user = await this.userService.create(userData);
 
@@ -33,7 +33,7 @@ export class AuthController {
                 error: { message: error.message }
             });
 
-            return res.status(500).json({ status: false, error: { message: "Internal server error" } });
+            return res.status(500);
         }
     }
 
@@ -53,9 +53,7 @@ export class AuthController {
                 error: { message: error.message }
             });
 
-            return res.status(500).json({ status: false, error: { message: "Internal server error" } });
+            return res.status(500);
         }
     }
 }
-
-export default new AuthController();
